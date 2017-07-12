@@ -1,0 +1,32 @@
+{
+    "name": "zmecust/iphpframe",
+    "description": "A PHP framework which is a learning project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zmecust",
+            "email": "root@laravue.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6.4",
+        "nesbot/carbon": "~1.21"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
