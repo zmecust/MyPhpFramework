@@ -7,6 +7,8 @@
  */
 namespace App\Model;
 
+use App\Factory;
+
 abstract class Model
 {
     /**
@@ -33,7 +35,7 @@ abstract class Model
      */
     function __construct($database, $id)
     {
-        $this->db = Factory::getDatabase();
+        $this->db = Factory::getDatabase('master');
         $res = $this->db->query("select * from $database where id = $id limit 1");
         $this->data = $res->fetch_assoc();
         $this->id = $id;

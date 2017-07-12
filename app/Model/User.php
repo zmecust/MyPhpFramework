@@ -7,7 +7,7 @@
  */
 namespace App\Model;
 
-class User
+class User extends Model
 {
     //
 }
