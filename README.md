@@ -1,2 +1,2 @@
 # MyPhpFramework
-A php framework which is the learning project
+A php framework which is a learning project
