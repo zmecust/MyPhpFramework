@@ -28,4 +28,9 @@ class Home extends Controller
             'time' => Carbon::now(),
         ];
     }
+
+    public function welcome()
+    {
+        include __DIR__. '/../../template/welcome.php';
+    }
 }

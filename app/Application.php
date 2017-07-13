@@ -7,7 +7,10 @@
  */
 namespace App;
 
+use App\Controller\Home;
 use App\Request\Request;
+use App\Route\Route;
+use App\Route\RouteCollection;
 
 class Application
 {
@@ -52,7 +55,16 @@ class Application
     function dispatch()
     {
         $uri = $_SERVER['REQUEST_URI'];
+        $routes = RouteCollection::getInstance()->getRoutes();
         if (empty(array_slice(explode('/', trim($uri, '/')), 2))) {
+            $class = '\\App\\Controller\\'.$routes['/'][0];
+            /*$obj = new $class($routes['/'][0], $routes['/'][1]);
+            $k = $routes['/'][1];
+            $obj->$k();*/
+            (new Home)->welcome();
+        }
+
+        /*if (empty(array_slice(explode('/', trim($uri, '/')), 2))) {
             $path = $this->base_dir.'/template/welcome.php';
             include $path;
         } else {
@@ -83,6 +95,6 @@ class Application
             {
                 $decorator->afterRequest($return_value);
             }
-        }
+        }*/
     }
 }
