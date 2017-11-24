@@ -7,8 +7,7 @@
  */
 namespace App\Controller;
 
-use App\Factory;
-use Carbon\Carbon;
+use App\Models\User;
 
 class Home extends Controller
 {
@@ -17,20 +16,12 @@ class Home extends Controller
      */
     public function index()
     {
-        $user = Factory::getModel('User', 1);
-
-        $user->name = 'zhangmin';
-        $user->email = 'root@laravue.org';
-
-        return [
-            'user' => $user->name,
-            'msg' => 'Welcome To ZMECUST\'s Home',
-            'time' => Carbon::now(),
-        ];
+        $user = User::findOne(['id' => 1]);
+        return [ 'user' => $user ];
     }
 
     public function welcome()
     {
-        include __DIR__. '/../../template/welcome.php';
+        include __DIR__ . '/../../template/welcome.php';
     }
 }

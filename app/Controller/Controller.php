@@ -2,12 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: zm
- * Date: 2017/7/12
+ * Date: 2017/11/12
  * Time: 14:05
  */
 namespace App\Controller;
 
-use App\Application;
+use Laravue\Application;
 
 abstract class Controller
 {
@@ -40,7 +40,7 @@ abstract class Controller
     {
         $this->controller_name = $controller_name;
         $this->view_name = $view_name;
-        $this->template_dir = Application::getInstance()->base_dir.'/template';
+        $this->template_dir = Application::getInstance()->base_dir . '/template';
     }
 
     /**
@@ -59,10 +59,10 @@ abstract class Controller
     {
         if (empty($file))
         {
-            $file = strtolower($this->controller_name).'/'.$this->view_name.'.php';
+            $file = strtolower($this->controller_name) . '/' . strtolower($this->view_name) . '.php';
         }
 
-        $path = $this->template_dir.'/'.$file;
+        $path = $this->template_dir . '/' . $file;
         extract($this->data);
         include $path;
     }

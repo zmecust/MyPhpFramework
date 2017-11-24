@@ -53,13 +53,7 @@
             What A Fucking Day!
         </p>
         <p>
-            <?= $user ?>
-        </p>
-        <p>
-            <?= $time ?>
-        </p>
-        <p>
-            <?= $msg ?>
+            <?= $user->name ?>
         </p>
     </div>
 </body>

@@ -2,10 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: zm
- * Date: 2017/7/12
+ * Date: 2017/11/12
  * Time: 10:35
  */
-namespace App;
+namespace Laravue;
 
 class Config implements \ArrayAccess //初始化配置文件
 {

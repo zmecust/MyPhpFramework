@@ -7,9 +7,9 @@
  */
 $config = [
     'decorator' => [
-        //'App\Middleware\CheckLogin',
-        'App\Middleware\Template',
-        //'App\Middleware\Json',
+        //'App\Middleware\CheckLogin', //判断是否登录
+        'App\Middleware\Template',  //返回模板
+        //'App\Middleware\Json',  //返回Json
     ]
 ];
 

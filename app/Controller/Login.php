@@ -7,7 +7,10 @@
  */
 namespace App\Controller;
 
-function index()
+class Login extends Controller
 {
-    echo "<h1>Login page</h1>";
+    function index()
+    {
+        echo "<h1>Login page</h1>";
+    }
 }

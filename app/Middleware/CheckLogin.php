@@ -15,9 +15,8 @@ class CheckLogin
     function beforeRequest($controller = null)
     {
         session_start();
-        if (empty($_SESSION['isLogin']))
-        {
-            header('Location: /MyPhpFramework/public/login/index/');
+        if (empty($_SESSION['isLogin'])) {
+            header('Location: /login');
             exit;
         }
     }
