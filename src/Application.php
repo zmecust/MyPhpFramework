@@ -38,7 +38,7 @@ class Application
      * @param string $base_dir
      * @return Application
      */
-    static function getInstance($base_dir = 'PUBLIC_PATH')
+    static function getInstance($base_dir = PUBLIC_PATH)
     {
         if (empty(self::$instance))
         {
@@ -56,8 +56,8 @@ class Application
 
         $controller_config = $this->config['controller'];
         $decorators = array();
-        
-        if (! empty($conf_decorator = $controller_config['decorator']))
+
+        if (! empty($conf_decorator = $controller_config['middleware']))
         {
             foreach($conf_decorator as $class)
             {

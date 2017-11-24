@@ -15,20 +15,20 @@ abstract class Controller
      * @var
      */
     protected $data;
+
     /**
      * @var
      */
-
     protected $controller_name;
+
     /**
      * @var
      */
-
     protected $view_name;
+
     /**
      * @var string
      */
-
     protected $template_dir;
 
     /**
