@@ -52,7 +52,7 @@ class Application
         $uri = $_SERVER['REQUEST_URI'];
         list($c, $v) = explode('/', trim($uri, '/'));
         $class = '\\App\\Controller\\' . ucwords($c); //路由匹配
-        $obj = new $class($c, $v);
+        $obj = new $class();
 
         $controller_config = $this->config['controller'];
         $decorators = array();

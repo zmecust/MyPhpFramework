@@ -16,7 +16,7 @@ class CheckLogin
     {
         session_start();
         if (empty($_SESSION['isLogin'])) {
-            header('Location: /login');
+            header('Location: /login/index/', TRUE, 301);
             exit;
         }
     }

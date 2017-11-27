@@ -36,7 +36,7 @@ class Config implements \ArrayAccess //初始化配置文件
     {
         if (empty($this->configs[$key]))
         {
-            $file_path = $this->path.'/'.$key.'.php';
+            $file_path = $this->path . '/' . $key . '.php';
             $config = require $file_path;
             $this->configs[$key] = $config;
         }

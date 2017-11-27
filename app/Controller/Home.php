@@ -17,11 +17,12 @@ class Home extends Controller
     public function index()
     {
         $user = User::findOne(['id' => 1]);
-        return [ 'user' => $user ];
+        return $this->toJson(['user' => $user]);
+        //return $this->view('home/index', ['user' => $user]);
     }
 
     public function welcome()
     {
-        include __DIR__ . '/../../template/welcome.php';
+        return $this->view('welcome');
     }
 }
