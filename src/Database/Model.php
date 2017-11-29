@@ -269,7 +269,7 @@ class Model implements BaseModel
         $primaryKeys = static::primaryKey();
         $condition = [];
         foreach ($primaryKeys as $name) {
-            $condition[$name] = isset($this->$name) ? $this->$name : null;
+            $condition[$name] = $this->$name ?? null;
         }
 
         $attributes = [];
@@ -293,7 +293,7 @@ class Model implements BaseModel
         $primaryKeys = static::primaryKey();
         $condition = [];
         foreach ($primaryKeys as $name) {
-            $condition[$name] = isset($this->$name) ? $this->$name : null;
+            $condition[$name] = $this->$name ?? null;
         }
 
         return static::deleteAll($condition) !== false;

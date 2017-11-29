@@ -7,7 +7,7 @@
  */
 $config = [
     'middleware' => [
-        'App\Middleware\CheckLogin', //判断是否登录
+        //'App\Middleware\CheckLogin', //判断是否登录
         //'App\Middleware\Template',  //返回模板
         //'App\Middleware\Json',  //返回Json
     ]

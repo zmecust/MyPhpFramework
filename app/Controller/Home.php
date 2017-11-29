@@ -17,8 +17,8 @@ class Home extends Controller
     public function index()
     {
         $user = User::findOne(['id' => 1]);
-        return $this->toJson(['user' => $user]);
-        //return $this->view('home/index', ['user' => $user]);
+        //return $this->toJson(['user' => $user]);
+        return $this->view('home/index', ['user' => $user]);
     }
 
     public function welcome()
