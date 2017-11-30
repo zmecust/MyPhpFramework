@@ -4,11 +4,17 @@ namespace Laravue\Web;
 
 class Compiler
 {
+    /**
+     * @var array
+     */
     protected $compilers = [
         'Statements',
         'Echos',
     ];
 
+    /**
+     * @var array
+     */
     protected $echoCompilers = [
         'RawEchos',
         'EscapedEchos'

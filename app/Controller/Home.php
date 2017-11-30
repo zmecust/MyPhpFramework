@@ -8,6 +8,7 @@
 namespace App\Controller;
 
 use App\Models\User;
+use App\Test;
 
 class Home extends Controller
 {

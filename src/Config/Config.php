@@ -21,7 +21,6 @@ class Config
 
     /**
      * Config constructor.
-     * @param $path
      */
     public function __construct()
     {
@@ -29,7 +28,8 @@ class Config
     }
 
     /**
-     * @param mixed $key
+     * @param $key
+     * @param null $default
      * @return mixed
      */
     public function get($key, $default = null)

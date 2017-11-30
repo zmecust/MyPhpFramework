@@ -44,6 +44,9 @@ class Application extends Container
         $this->config = new Config($base_dir . '/config');
     }
 
+    /**
+     *
+     */
     private function bootConfig()
     {
         $this->bind('config', function() {
@@ -52,7 +55,7 @@ class Application extends Container
     }
 
     /**
-     * @param string $base_dir
+     * @param bool|string $base_dir
      * @return Application
      */
     static function getInstance($base_dir = ROOT_PATH)
@@ -64,12 +67,16 @@ class Application extends Container
         return self::$instance;
     }
 
+    /**
+     *
+     */
     function dispatch()
     {
         $uri = $_SERVER['REQUEST_URI'];
         list($c, $v) = explode('/', trim($uri, '/'));
-        $class = '\\App\\Controller\\' . ucwords($c); //路由匹配
-        $obj = new $class();
+        $class = 'App\\Controller\\' . ucwords($c); // 路由匹配
+
+        $obj = $this->make($class); // 实现 controller 依赖注入
 
         $controller_config = config('controller');
         $decorators = [];
@@ -84,14 +91,14 @@ class Application extends Container
 
         foreach($decorators as $decorator)
         {
-            $decorator->beforeRequest($obj); //前装饰
+            $decorator->beforeRequest($obj); // 前装饰
         }
 
         $return_value = $obj->$v();
 
         foreach($decorators as $decorator)
         {
-            $decorator->afterRequest($return_value); //后装饰
+            $decorator->afterRequest($return_value); // 后装饰
         }
     }
 }
