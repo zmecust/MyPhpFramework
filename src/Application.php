@@ -7,7 +7,10 @@
  */
 namespace Laravue;
 
-class Application
+use Laravue\Container\Container;
+use Laravue\Config\Config as BaseConfig;
+
+class Application extends Container
 {
     /**
      * @var
@@ -31,14 +34,28 @@ class Application
     protected function __construct($base_dir)
     {
         $this->base_dir = $base_dir;
+
+        // 加载助手函数
+        require $this->base_dir . '/src/helper.php';
+        
+        // 加载配置文件
+        $this->bootConfig();
+
         $this->config = new Config($base_dir . '/config');
+    }
+
+    private function bootConfig()
+    {
+        $this->bind('config', function() {
+            return new BaseConfig();
+        });
     }
 
     /**
      * @param string $base_dir
      * @return Application
      */
-    static function getInstance($base_dir = PUBLIC_PATH)
+    static function getInstance($base_dir = ROOT_PATH)
     {
         if (empty(self::$instance))
         {
@@ -54,8 +71,8 @@ class Application
         $class = '\\App\\Controller\\' . ucwords($c); //路由匹配
         $obj = new $class();
 
-        $controller_config = $this->config['controller'];
-        $decorators = array();
+        $controller_config = config('controller');
+        $decorators = [];
 
         if (! empty($conf_decorator = $controller_config['middleware']))
         {

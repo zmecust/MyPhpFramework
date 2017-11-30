@@ -1,9 +1,5 @@
 <?php
 
-namespace Laravue\Container;
-
-use Closure;
-
 class Container
 {
     protected $binds;

@@ -5,7 +5,7 @@
  * Date: 2017/7/12
  * Time: 10:57
  */
-$config = [
+return [
     'dsn' => 'mysql:host=127.0.0.1;dbname=test',
     'username' => 'root',
     'password' => 'root',
@@ -14,5 +14,3 @@ $config = [
         \PDO::ATTR_STRINGIFY_FETCHES => false,
     ]
 ];
-
-return $config;
