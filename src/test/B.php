@@ -4,6 +4,6 @@ class B
 {
     public function test()
     {
-        return 'hello world';
+        return 'hello world B';
     }
 }

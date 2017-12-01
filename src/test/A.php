@@ -11,7 +11,7 @@ class A
         $this->b = $b;
     }
 
-    public static function get()
+    public function get()
     {
         return $this->b->test();
     }
